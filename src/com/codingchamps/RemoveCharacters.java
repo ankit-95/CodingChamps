@@ -1,5 +1,9 @@
-package com.company;
+package com.codingchamps;
 
+/*
+    This Problem deals with a String i.e "xabxcxxz" and will remove "x" from the given string which in turn will
+    result into "abcz".
+ */
 public class RemoveCharacters {
 
     public static String removeCharacters(String s){
@@ -11,7 +15,7 @@ public class RemoveCharacters {
             return s.substring(0,1)+ removeCharacters(s.substring(1));
     }
     public static void main (String args[]){
-        String s = "xxxxxxxxxabxcxxzxxxxxxxx";
+        String s = "xabxcxxz";
         System.out.println(removeCharacters(s));
     }
 }
