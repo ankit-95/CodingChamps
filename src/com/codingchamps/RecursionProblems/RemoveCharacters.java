@@ -1,4 +1,4 @@
-package com.codingchamps;
+package com.codingchamps.RecursionProblems;
 
 /*
     This Problem deals with a String i.e "xabxcxxz" and will remove "x" from the given string which in turn will
