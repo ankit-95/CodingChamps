@@ -140,6 +140,22 @@ public class LinkedListDemo {
         return slow.data;
     }
 
+    /*
+    * Reverse a Linked List*/
+
+    public void reverseLinkedList(){
+        Node current = head;
+        Node next;
+        Node prev = null;
+        while(current!=null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        current = prev;
+        head = current;
+    }
     public static void main(String args[]) {
         LinkedListDemo list = new LinkedListDemo();
         list.insertNodeAtFront(5);
@@ -165,9 +181,11 @@ public class LinkedListDemo {
         System.out.print("\nSearch Element in LinkedList (Iterative) : "+list.searchEleIterative(1));
         System.out.print("\nSearch Element in LinkedList (Recursive) : "+list.searchEleRecursive(list.head,6));
         System.out.print("\nMiddle Element in LinkedList : "+list.getMiddleElement());
-        System.out.print("\nLinkedList After Deletion : ");
+        /*System.out.print("\nLinkedList After Deletion : ");
         list.deleteLinkedList();
+        list.displayList();*/
+        list.reverseLinkedList();
+        System.out.print("\nReversed Linked List :");
         list.displayList();
-
     }
 }
