@@ -100,6 +100,31 @@ public class LinkedListDemo {
         return 1 + lengthOfLLRecursive(temp.next);
     }
 
+    /*
+    Search Element in LL : Two ways
+    1. Iterative
+    2. Recursive
+    * */
+
+    public boolean searchEleIterative(int element){
+        Node temp = this.head;
+        while(temp!=null){
+            if(temp.data == element){
+                return  true;
+            } else
+                temp = temp.next;
+        }
+        return false;
+    }
+    public boolean searchEleRecursive(Node temp,int element){
+        if(temp!=null && temp.data == element){
+            return true;
+        } else if(temp==null){
+            return false;
+        } else
+            return searchEleRecursive(temp.next,element);
+    }
+
     public static void main(String args[]) {
         LinkedListDemo list = new LinkedListDemo();
         list.insertNodeAtFront(5);
@@ -119,8 +144,11 @@ public class LinkedListDemo {
         list.displayList();
         System.out.print("\nLinkedList Length (Iterative) : "+list.lengthOfLLIterative());
         System.out.print("\nLinkedList Length (Recursive) : "+list.lengthOfLLRecursive(list.head));
+        System.out.print("\nSearch Element in LinkedList (Iterative) : "+list.searchEleIterative(1));
+        System.out.print("\nSearch Element in LinkedList (Recursive) : "+list.searchEleRecursive(list.head,6));
         System.out.print("\nLinkedList After Deletion : ");
         list.deleteLinkedList();
         list.displayList();
+
     }
 }
