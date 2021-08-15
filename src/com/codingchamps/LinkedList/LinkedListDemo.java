@@ -42,7 +42,7 @@ public class LinkedListDemo {
             temp=temp.next;
         }
         if(temp==null){
-            System.out.print("\nKey Not Found.");
+            System.out.print("\nKey Not Found.\n");
         } else {
             prev.next = temp.next;
         }
@@ -57,13 +57,13 @@ public class LinkedListDemo {
             temp = temp.next;
             count++;
         } else {
-            System.out.print("\nKey Not Found.");
+            System.out.print("\nKey Not Found.\n");
         }
         count++;
         if(count==position)
             temp.next = temp.next.next;
         else
-            System.out.print("\nKey Not Found.");
+            System.out.print("\nKey Not Found.\n");
     }
     public void deleteLinkedList(){
         if(this.head!=null){
@@ -125,6 +125,21 @@ public class LinkedListDemo {
             return searchEleRecursive(temp.next,element);
     }
 
+    /*
+    * Print Middle Element in LL*/
+
+    public int getMiddleElement(){
+        Node fast = this.head;
+        if(this.head==null)
+            return -1;
+        Node slow = this.head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.data;
+    }
+
     public static void main(String args[]) {
         LinkedListDemo list = new LinkedListDemo();
         list.insertNodeAtFront(5);
@@ -132,6 +147,9 @@ public class LinkedListDemo {
         list.insertNodeAtFront(7);
         list.insertNodeAtFront(8);
         list.insertNodeAtLast(1);
+        list.insertNodeAtFront(6);
+        list.insertNodeAtFront(10);
+        list.insertNodeAtFront(11);
         list.displayList();
         System.out.print("\n");
         list.deleteGivenKeyIterative(7);
@@ -146,6 +164,7 @@ public class LinkedListDemo {
         System.out.print("\nLinkedList Length (Recursive) : "+list.lengthOfLLRecursive(list.head));
         System.out.print("\nSearch Element in LinkedList (Iterative) : "+list.searchEleIterative(1));
         System.out.print("\nSearch Element in LinkedList (Recursive) : "+list.searchEleRecursive(list.head,6));
+        System.out.print("\nMiddle Element in LinkedList : "+list.getMiddleElement());
         System.out.print("\nLinkedList After Deletion : ");
         list.deleteLinkedList();
         list.displayList();
