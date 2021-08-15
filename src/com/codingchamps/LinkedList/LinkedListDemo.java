@@ -42,22 +42,33 @@ public class LinkedListDemo {
             temp=temp.next;
         }
         if(temp==null){
-            System.out.println("\nKey Not Found.");
+            System.out.print("\nKey Not Found.");
         } else {
             prev.next = temp.next;
         }
     }
     /*
-    To Delete a Given Key, Use two pointer approach .. Recursive Approach
+    To Delete from given position, Use two pointer approach
      */
-    public void deleteGivenKeyRecursive(Node temp,int data){
-        if(temp!=null && temp.data == data){
+    public void deleteFromGivenPosition(int position){
+        Node temp = this.head;
+        int count=0;
+        if(temp!=null && count!=position && position>=0){
             temp = temp.next;
-            return;
+            count++;
         } else {
-            System.out.println("\nKey Not Found.");
+            System.out.print("\nKey Not Found.");
         }
-        deleteGivenKeyRecursive(temp.next,data);
+        count++;
+        if(count==position)
+            temp.next = temp.next.next;
+        else
+            System.out.print("\nKey Not Found.");
+    }
+    public void deleteLinkedList(){
+        if(this.head!=null){
+            this.head=null;
+        }
     }
     public void displayList() {
         Node temp = this.head;
@@ -65,6 +76,28 @@ public class LinkedListDemo {
             System.out.print(temp.data + "-> ");
             temp = temp.next;
         }
+    }
+
+    /*
+    Find Length of LL : Two ways
+    1. Iterative
+    2. Recursive
+    * */
+
+    public int lengthOfLLIterative(){
+        int count=0;
+        Node temp = this.head;
+        while(temp!=null){
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+    public int lengthOfLLRecursive(Node temp){
+        if(temp==null){
+            return 0;
+        }
+        return 1 + lengthOfLLRecursive(temp.next);
     }
 
     public static void main(String args[]) {
@@ -78,7 +111,16 @@ public class LinkedListDemo {
         System.out.print("\n");
         list.deleteGivenKeyIterative(7);
         list.displayList();
-        list.deleteGivenKeyRecursive(list.head,5);
+        System.out.print("\n");
+        list.deleteFromGivenPosition(2);
+        list.displayList();
+        System.out.print("\n");
+        list.deleteFromGivenPosition(10);
+        list.displayList();
+        System.out.print("\nLinkedList Length (Iterative) : "+list.lengthOfLLIterative());
+        System.out.print("\nLinkedList Length (Recursive) : "+list.lengthOfLLRecursive(list.head));
+        System.out.print("\nLinkedList After Deletion : ");
+        list.deleteLinkedList();
         list.displayList();
     }
 }
