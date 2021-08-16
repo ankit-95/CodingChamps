@@ -214,6 +214,46 @@ public class LinkedListDemo {
         prev.next = null;
     }
 
+    /*
+    * Swap nodes in LL without swapping data*/
+
+    public void swapNodesInLL(int x,int y){
+        if(x==y){
+            return;
+        }
+        // Search for x (keep track of prevX and CurrX)
+        Node prevX=null,currX=head;
+        while(currX!=null && currX.data !=x){
+           prevX = currX;
+           currX = currX.next;
+        }
+        // Search for y (keep track of prevY and currY)
+        Node prevY=null,currY=head;
+        while(currY!=null && currY.data !=y){
+            prevY = currY;
+            currY = currY.next;
+        }
+        // If either x or y is not present, nothing to do
+        if(currX==null || currY==null)
+            return;
+
+        // If x is not head of linked list
+        if(prevX!=null){
+            prevX.next = currY;
+        } else{ //make y as new head
+            head = currY;
+        }
+        // If y is not head of linked list
+        if (prevY != null)
+            prevY.next = currX;
+        else // make x the new head
+            head = currX;
+
+        // swap next pointers
+        Node temp = currX.next;
+        currX.next = currY.next;
+        currY.next = temp;
+    }
     public static void main(String args[]) {
         LinkedListDemo list = new LinkedListDemo();
         list.insertNodeAtFront(5);
@@ -252,6 +292,9 @@ public class LinkedListDemo {
         list.displayList();
         list.moveLast2FrontIterative();
         System.out.print("\nList : ");
+        list.displayList();
+        list.swapNodesInLL(1,8);
+        System.out.print("\nAfter Swapping List is  : ");
         list.displayList();
     }
 }
