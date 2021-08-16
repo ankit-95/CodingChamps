@@ -3,6 +3,7 @@ package com.codingchamps.LinkedList;
 
 public class LinkedListDemo {
     Node head;
+    static int count;
     public class Node {
         int data;
         Node next;
@@ -156,6 +157,47 @@ public class LinkedListDemo {
         current = prev;
         head = current;
     }
+
+    /*
+    Find the Nth Node from the end of LL :
+    1. Recursion - T.C - O(n) , Aux Space Complexity - O(n)
+    2. Two pointer approach - T.C - O(n) , Aux Space Complexity - O(1)
+    * */
+    public static void getNthNodeFromEnd(Node right, int position){
+       count=0;
+        if(right==null){
+            return;
+        }
+        getNthNodeFromEnd(right.next,position);
+        if(++count == position){
+            System.out.print(right.data);
+        }
+    }
+    public void getNthNodeFromEnd2Pointer(int position){
+        int count=0;
+        Node mark = head;
+        Node ref = head;
+        if(head!=null) {
+            while (count < position) {
+                if (count == position) {
+                    break;
+                }
+                ref = ref.next;
+                count++;
+            }
+            if (ref == null) {
+                if (head != null) {
+                    System.out.print("\nNode is : " + head.data);
+                }
+            } else {
+                while (ref != null) {
+                    mark = mark.next;
+                    ref = ref.next;
+                }
+                System.out.print("\nNode is : " + mark.data);
+            }
+        }
+    }
     public static void main(String args[]) {
         LinkedListDemo list = new LinkedListDemo();
         list.insertNodeAtFront(5);
@@ -187,5 +229,9 @@ public class LinkedListDemo {
         list.reverseLinkedList();
         System.out.print("\nReversed Linked List :");
         list.displayList();
+        System.out.print("\nFind Element from End :");
+        list.getNthNodeFromEnd(list.head,2);
+        list.getNthNodeFromEnd2Pointer(2);
+
     }
 }
