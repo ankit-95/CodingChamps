@@ -198,6 +198,22 @@ public class LinkedListDemo {
             }
         }
     }
+    /*
+    Move Last Element to Front in LL
+    1. Iterative Approach
+    * */
+    public void moveLast2FrontIterative(){
+        Node temp = head;
+        Node prev = head;
+        while(temp!=null && temp.next!=null){
+            prev = temp;
+            temp = temp.next;
+        }
+        temp.next = head;
+        head = temp;
+        prev.next = null;
+    }
+
     public static void main(String args[]) {
         LinkedListDemo list = new LinkedListDemo();
         list.insertNodeAtFront(5);
@@ -232,6 +248,10 @@ public class LinkedListDemo {
         System.out.print("\nFind Element from End :");
         list.getNthNodeFromEnd(list.head,2);
         list.getNthNodeFromEnd2Pointer(2);
-
+        System.out.print("\nList : ");
+        list.displayList();
+        list.moveLast2FrontIterative();
+        System.out.print("\nList : ");
+        list.displayList();
     }
 }

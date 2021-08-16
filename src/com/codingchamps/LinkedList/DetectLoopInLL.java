@@ -37,7 +37,7 @@ public class DetectLoopInLL {
 
     /*
      * Detect Loop in LL
-     * 1. Using Two Pointer Approach , T.C=O(n), A.S.C = O(1)
+     * 1. Using Two Pointer Approach , T.C=O(n), A.S.C = O(1) (Floyd’s Cycle-Finding Algorithm )
      * 2. Using Extra Info in Linked List, T.C = O(n)
      * 3. Using HashSet,T.C=O(n), A.S.C = O(n)
      * */
