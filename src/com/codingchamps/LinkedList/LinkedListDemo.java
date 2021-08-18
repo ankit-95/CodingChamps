@@ -268,7 +268,7 @@ public class LinkedListDemo {
         System.out.print("\n");
         list.deleteGivenKeyIterative(7);
         list.displayList();
-        System.out.print("\n");
+        System.out.print("\n deleteFromGivenPosition : ");
         list.deleteFromGivenPosition(2);
         list.displayList();
         System.out.print("\n");
