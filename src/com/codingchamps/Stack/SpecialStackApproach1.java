@@ -5,16 +5,22 @@ Question: Design a Data Structure SpecialStack that supports all the stack opera
 and an additional operation getMin() which should return minimum element from the SpecialStack. All these operations of SpecialStack
 must be O(1). To implement SpecialStack, you should only use standard Stack data structure and no other data structure like arrays,
 list, . etc.
-* */
+* *
+Time Complexity - O(1) for each operation i.e push,pop and getMin
+
+Aux Space Complexity - O(n)
+
+/
+ */
 
 import java.util.Iterator;
 import java.util.Stack;
 
-public class SpecialStack extends Stack<Integer> {
+public class SpecialStackApproach1 extends Stack<Integer> {
 
     Stack<Integer> aux;
 
-    SpecialStack(){
+    SpecialStackApproach1(){
         super();
         aux = new Stack<>();
     }
@@ -51,7 +57,7 @@ public class SpecialStack extends Stack<Integer> {
         }
     }
     public static void main(String args[]){
-        SpecialStack stack = new SpecialStack();
+        SpecialStackApproach1 stack = new SpecialStackApproach1();
 
         stack.push(1);
         stack.push(2);
