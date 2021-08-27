@@ -1,3 +1,5 @@
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 # CodingChamps
 Repository to push Daily Problems that I solve to Practice DSA
 
@@ -9,4 +11,4 @@ Now, I have started solving GeeksforGeeks Popular Problems related to a Course N
 
 Recently added LinkedList, Stack and Trees problems as well.
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
