@@ -24,5 +24,21 @@ public class SortZeroToEnd {
 
         Arrays.stream(ar).forEach(System.out :: print);
 
+        System.out.println();
+        int ar1[] = {1, 2, 0, 4, 3, 0, 5, 0};
+        int size1 = ar1.length;
+        int index1 = ar1.length-1;
+        int index_0=0;
+        // O(n) - Need to think of this logic
+        for(int i=0;i<size1;i++){
+            if(ar1[i]!=0){
+                ar1[index_0++] =ar1[i];
+            }
+        }
+        while (index_0 < size1){
+            ar1[index_0++] = 0;
+        }
+
+        Arrays.stream(ar1).forEach(System.out :: print);
     }
 }
