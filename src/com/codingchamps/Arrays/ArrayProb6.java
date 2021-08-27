@@ -20,6 +20,20 @@ import java.util.Arrays;
 
 public class ArrayProb6 {
 
+    public static void moveNegativeNumber(){
+        int ar[] = {-3,7,-2,-1,6,17,-10};
+        int index=-1;
+        for(int i=0;i<ar.length;i++){
+            if(ar[i]<0){
+                index++;
+                int temp = ar[index];
+                ar[index] = ar[i];
+                ar[i] = temp;
+            }
+        }
+
+        Arrays.stream(ar).forEach(e -> System.out.print(e+" "));
+    }
     public static void main(String args[]){
         int ar[] = {5, 8, 1, 4, 2, 9, 3, 7, 6};
         int b[] = new int[ar.length];
@@ -39,5 +53,7 @@ public class ArrayProb6 {
             }
         }
         Arrays.stream(ar).forEach(e -> System.out.print(e+" "));
+
+        moveNegativeNumber();
     }
 }
