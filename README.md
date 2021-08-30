@@ -9,6 +9,9 @@ Firstly I will be solving Recursion Problems.
 
 Now, I have started solving GeeksforGeeks Popular Problems related to a Course Named "Essential Maths for Competitive Programming Java".
 
-Recently added LinkedList, Stack and Trees problems as well.
+Recently added LinkedList, Stack and Trees problems as well. 
+
+The Idea is to push the problems that in turn will nurish the DSA concepts.
+
 
 
