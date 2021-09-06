@@ -13,5 +13,5 @@ Recently added LinkedList, Stack, Trees, Sorting and searching problems as well.
 
 The Idea is to push the problems that in turn will nurish the DSA concepts.
 
-
+Note : Feel free to recommend changes to folks want me to do.
 
