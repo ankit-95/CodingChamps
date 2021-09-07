@@ -1,5 +1,7 @@
 package com.codingchamps.Tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class TreeTraversal {
@@ -105,6 +107,19 @@ public class TreeTraversal {
         int max2 = 1+ heightOfTree(temp.right);
         return Math.max(max1,max2);
     }
+
+    public static void printLevelOrderTraversal(Node temp){
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(temp);
+        while(!queue.isEmpty()){
+            Node tempNode = queue.poll();
+            System.out.print(tempNode.data+" ");
+            if(tempNode.left!=null)
+                queue.add(tempNode.left);
+            if(tempNode.right!=null)
+                queue.add(tempNode.right);
+        }
+    }
     public static void main(String args[]){
 
         TreeTraversal tree = new TreeTraversal();
@@ -133,7 +148,7 @@ public class TreeTraversal {
         System.out.print("\nTotal Nodes : "+totalNodes(tree.root));
 
         System.out.print("\nHeight Of Tree : "+heightOfTree(tree.root));
-
-
+        System.out.print("\nLevel Order Traversal of Tree : ");
+        printLevelOrderTraversal(tree.root);
     }
 }
