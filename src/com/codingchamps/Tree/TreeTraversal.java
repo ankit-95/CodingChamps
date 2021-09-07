@@ -89,6 +89,22 @@ public class TreeTraversal {
            System.out.print(s2.pop().data +" ");
        }
     }
+
+    public static int totalNodes(Node temp){
+        if(temp==null){
+            return 0;
+        }
+        return 1 + totalNodes(temp.left) + totalNodes(temp.right);
+    }
+
+    public static int heightOfTree(Node temp){
+        if(temp==null){
+            return 0;
+        }
+        int max1 = 1+ heightOfTree(temp.left);
+        int max2 = 1+ heightOfTree(temp.right);
+        return Math.max(max1,max2);
+    }
     public static void main(String args[]){
 
         TreeTraversal tree = new TreeTraversal();
@@ -97,6 +113,8 @@ public class TreeTraversal {
         tree.root.right = new Node(6);
         tree.root.left.left = new Node(2);
         tree.root.left.right = new Node(3);
+
+        tree.root.left.left.right = new Node(8);
 
        /* System.out.print("Inorder : ");
         tree.inOrderTraversal(tree.root);
@@ -112,7 +130,9 @@ public class TreeTraversal {
         System.out.print("\nPostorder : ");
         tree.postOrderTraversalWithoutRecursion(tree.root);
 
+        System.out.print("\nTotal Nodes : "+totalNodes(tree.root));
 
+        System.out.print("\nHeight Of Tree : "+heightOfTree(tree.root));
 
 
     }
