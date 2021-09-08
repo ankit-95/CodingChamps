@@ -146,8 +146,13 @@ public class TreeTraversal {
         tree.postOrderTraversalWithoutRecursion(tree.root);
 
         System.out.print("\nTotal Nodes : "+totalNodes(tree.root));
-
-        System.out.print("\nHeight Of Tree : "+heightOfTree(tree.root));
+        TreeTraversal tree1 = new TreeTraversal();
+        tree1.root = new Node(2);
+       // tree.root.left = new Node(4);
+        tree1.root.right = new Node(1);
+        tree1.root.right.left = new Node(3);
+        //tree.root.left.right = new Node(3);
+        System.out.print("\nHeight Of Tree : "+heightOfTree(tree1.root));
         System.out.print("\nLevel Order Traversal of Tree : ");
         printLevelOrderTraversal(tree.root);
     }
