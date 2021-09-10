@@ -270,6 +270,35 @@ public class LinkedListDemo {
         currX.next = currY.next;
         currY.next = temp;
     }
+
+    public static Node findMiddleElement(Node temp){
+        Node slow = temp;
+        Node fast = temp;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
+    Node deleteMid(Node head) {
+        // This is method only submission.
+        // You only need to complete the method.
+        if(head ==null)
+            return null;
+        if(head.next!=null && head.next.next==null){
+            head.next = null;
+            return head;
+        }
+        Node middle = findMiddleElement(head);
+        if(middle!=null && middle.next!=null){
+            middle.data = middle.next.data;
+            middle.next = middle.next.next;
+        } else {
+            head=null;
+        }
+        return head;
+    }
+
     public static void main(String args[]) {
         LinkedListDemo list = new LinkedListDemo();
         list.insertNodeAtFront(5);
@@ -316,6 +345,10 @@ public class LinkedListDemo {
         Node delete = list.searchEleNode(8);
         list.deleteNode(delete);
         System.out.print("\nList After deleting 8  is  : ");
+        list.displayList();
+
+        list.deleteMid(list.head);
+        System.out.print("\nList After deleting middle element is  : ");
         list.displayList();
     }
 }
