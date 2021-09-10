@@ -117,6 +117,16 @@ public class LinkedListDemo {
         }
         return false;
     }
+    public Node searchEleNode(int element){
+        Node temp = this.head;
+        while(temp!=null){
+            if(temp.data == element){
+                return  temp;
+            } else
+                temp = temp.next;
+        }
+        return null;
+    }
     public boolean searchEleRecursive(Node temp,int element){
         if(temp!=null && temp.data == element){
             return true;
@@ -156,6 +166,12 @@ public class LinkedListDemo {
         }
         current = prev;
         head = current;
+    }
+
+    static void deleteNode(Node del)
+    {
+        del.data = del.next.data;
+        del.next = del.next.next;
     }
 
     /*
@@ -295,6 +311,11 @@ public class LinkedListDemo {
         list.displayList();
         list.swapNodesInLL(1,8);
         System.out.print("\nAfter Swapping List is  : ");
+        list.displayList();
+
+        Node delete = list.searchEleNode(8);
+        list.deleteNode(delete);
+        System.out.print("\nList After deleting 8  is  : ");
         list.displayList();
     }
 }
