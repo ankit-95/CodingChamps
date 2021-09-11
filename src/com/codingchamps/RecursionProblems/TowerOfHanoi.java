@@ -20,7 +20,19 @@ public class TowerOfHanoi {
         System.out.println("Move the "+n+"th disk from "+source+" to Destination "+destination);
         towerOfHanoiPrint(n-1,helper,destination,source);
     }
+
+    public static long toh(int N, char from, char to, char aux) {
+        long count=0;
+        if(N>0){
+            count = toh(N-1, from , aux, to);
+            System.out.println("move disk "+ N  + " from rod "+ from +" to rod "+ to);
+            count++;
+            count += toh(N-1, aux , to, from);
+        }
+        return count;
+    }
     public static void main(String args[]){
         towerOfHanoiPrint(3,'A','C','B');
+        System.out.println(toh(3,'A','C','B'));
     }
 }
