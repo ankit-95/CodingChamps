@@ -1,3 +1,6 @@
+<p align="center">
+    <img src="https://img.shields.io/badge/Coding-Champs-blue" alt="Badge" />
+</p>
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 # CodingChamps
