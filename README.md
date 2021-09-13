@@ -1,5 +1,5 @@
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 <p align="center">
+    [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
     <img src="https://img.shields.io/badge/Coding-Champs-blue" alt="Badge" />
 </p>
 
