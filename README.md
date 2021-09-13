@@ -1,6 +1,10 @@
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 <p align="center">
-    [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
     <img src="https://img.shields.io/badge/Coding-Champs-blue" alt="Badge" />
+    <img src="https://img.shields.io/github/issues/ankit-95/CodingChamps" alt="Issues" />
+    <img src="https://img.shields.io/github/stars/ankit-95/CodingChamps" alt="Stars" />
+    <img src="https://img.shields.io/badge/Java-99.99%20%25-brightgreen" alt="Java" />
+    <img src="https://img.shields.io/badge/HTML-0.1%20%25-brightgreen" alt="HTML" />
 </p>
 
 
