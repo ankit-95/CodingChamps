@@ -32,10 +32,10 @@ public class ExpressionEvaluation {
         operands = new Stack<>();
         for(int i=0;i<s.length();i++){
 
-            if(s.charAt(i)==' '){
+            if(s.charAt(i)==' '){ // Handle spaces
                 continue;
             }
-            if(Character.isLetterOrDigit(s.charAt(i))){
+            if(Character.isLetterOrDigit(s.charAt(i))){ // Letter or Digit Case
                 StringBuffer sbuf = new
                         StringBuffer();
                 while(i<s.length() && Character.isLetterOrDigit(s.charAt(i))){
@@ -44,9 +44,9 @@ public class ExpressionEvaluation {
                 }
                 i--;
                 operands.push(Integer.parseInt(sbuf.toString()));
-            } else if(s.charAt(i)=='('){
+            } else if(s.charAt(i)=='('){ // Open Bracket Case
                 operators.push(s.charAt(i));
-            }else if (s.charAt(i)==')'){
+            }else if (s.charAt(i)==')'){ // Close Bracket Case
                 while(!operators.empty() && operators.peek()!='('){
                     Integer op2 = operands.pop();
                     Integer op1 = operands.pop();
@@ -54,7 +54,7 @@ public class ExpressionEvaluation {
                     operands.push(result);
                 }
                 operators.pop();
-            } else {
+            } else { // Decide Precedence of Operators
                 while(!operators.empty() && getPrecedence(s.charAt(i)) <=getPrecedence(operators.peek())){
                     Integer op2 = operands.pop();
                     Integer op1 = operands.pop();
