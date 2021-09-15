@@ -117,6 +117,16 @@ public class LinkedListDemo {
         }
         return false;
     }
+    public Node searchEleNode(int element){
+        Node temp = this.head;
+        while(temp!=null){
+            if(temp.data == element){
+                return  temp;
+            } else
+                temp = temp.next;
+        }
+        return null;
+    }
     public boolean searchEleRecursive(Node temp,int element){
         if(temp!=null && temp.data == element){
             return true;
@@ -156,6 +166,12 @@ public class LinkedListDemo {
         }
         current = prev;
         head = current;
+    }
+
+    static void deleteNode(Node del)
+    {
+        del.data = del.next.data;
+        del.next = del.next.next;
     }
 
     /*
@@ -254,6 +270,35 @@ public class LinkedListDemo {
         currX.next = currY.next;
         currY.next = temp;
     }
+
+    public static Node findMiddleElement(Node temp){
+        Node slow = temp;
+        Node fast = temp;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
+    Node deleteMid(Node head) {
+        // This is method only submission.
+        // You only need to complete the method.
+        if(head ==null)
+            return null;
+        if(head.next!=null && head.next.next==null){
+            head.next = null;
+            return head;
+        }
+        Node middle = findMiddleElement(head);
+        if(middle!=null && middle.next!=null){
+            middle.data = middle.next.data;
+            middle.next = middle.next.next;
+        } else {
+            head=null;
+        }
+        return head;
+    }
+
     public static void main(String args[]) {
         LinkedListDemo list = new LinkedListDemo();
         list.insertNodeAtFront(5);
@@ -295,6 +340,15 @@ public class LinkedListDemo {
         list.displayList();
         list.swapNodesInLL(1,8);
         System.out.print("\nAfter Swapping List is  : ");
+        list.displayList();
+
+        Node delete = list.searchEleNode(8);
+        list.deleteNode(delete);
+        System.out.print("\nList After deleting 8  is  : ");
+        list.displayList();
+
+        list.deleteMid(list.head);
+        System.out.print("\nList After deleting middle element is  : ");
         list.displayList();
     }
 }
