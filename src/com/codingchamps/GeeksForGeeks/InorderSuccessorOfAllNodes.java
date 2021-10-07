@@ -32,7 +32,7 @@ public class InorderSuccessorOfAllNodes {
 
         populateNext(tree.root);
 
-        // Let us see the populated values
+        // Let us see the populated values of all the nodes 
         Node ptr = tree.root.left.left;
         while (ptr != null)
         {
