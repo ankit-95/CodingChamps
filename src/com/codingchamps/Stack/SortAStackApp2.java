@@ -13,19 +13,19 @@ public class SortAStackApp2 {
         } else {
             int a = s.pop();
             if(a < x){
-                insert_at_bottom(x);
-                s.push(a);
-            } else {
                 insert_at_bottom(a);
                 s.push(x);
+            } else {
+                insert_at_bottom(x);
+                s.push(a);
             }
         }
     }
-    public static void reverseStack(){
+    public static void sortStackAsc(){
         if(s.empty())
             return;
         int x = s.pop();
-        reverseStack();
+        sortStackAsc();
         insert_at_bottom(x);
     }
     public static void main(String args[]) {
@@ -35,7 +35,7 @@ public class SortAStackApp2 {
         c.s.push(18);
         c.s.push(-5);
         c.s.push(30);
-        c.reverseStack();
+        c.sortStackAsc();
         System.out.println(c.s);
     }
 }
