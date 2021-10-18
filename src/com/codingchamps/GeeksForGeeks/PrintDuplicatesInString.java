@@ -41,7 +41,9 @@ public class PrintDuplicatesInString {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String s = "test string";
-		
+		System.out.println("Approach 1 :");
+		approach1(s);
+		System.out.println("Approach 2 :");
 		approach2(s);
 	}
 
