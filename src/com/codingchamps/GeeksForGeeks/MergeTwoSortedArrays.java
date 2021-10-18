@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class MergeTwoSortedArrays {
 
-	// Time Complexity : ((n+m) log(n+m)) and Aux Space Complexity : O(1)	
+	// Time Complexity : ((n+m) log(n+m)) and Aux Space Complexity : O(1)
+
 	public static void mergeArrays(int ar1[] , int ar2[], int n ,int m){
 		int gap = n+m;
 		int i=0,j=0;
