@@ -64,7 +64,6 @@ public class CaseSpecificSortingInString {
         char ch[] = a.toCharArray();
 
         String sortedStr = buildHeap(ch);
-        //System.out.println(sortedStr);
         char copy[] = a.toCharArray();
 
         int index = 0;
