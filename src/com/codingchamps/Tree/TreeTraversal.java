@@ -1,8 +1,6 @@
 package com.codingchamps.Tree;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class TreeTraversal {
 
@@ -120,6 +118,29 @@ public class TreeTraversal {
                 queue.add(tempNode.right);
         }
     }
+
+    public static void reverseLevelOrder(Node node)
+    {
+        Queue<Node> q = new LinkedList<>();
+        q.add(node);
+        Stack<Integer> s = new Stack();
+        while(!q.isEmpty()){
+
+            Node temp = q.remove();
+            // System.out.print(temp.data+"->");
+            s.push(temp.data);
+            if(temp.right!=null)
+                q.add(temp.right);
+            if(temp.left!=null)
+                q.add(temp.left);
+        }
+
+        Iterator itr = s.iterator();
+        while(itr.hasNext()){
+            System.out.print(s.peek()+"->");
+            s.pop();
+        }
+    }
     public static void main(String args[]){
 
         TreeTraversal tree = new TreeTraversal();
@@ -155,5 +176,7 @@ public class TreeTraversal {
         System.out.print("\nHeight Of Tree : "+heightOfTree(tree1.root));
         System.out.print("\nLevel Order Traversal of Tree : ");
         printLevelOrderTraversal(tree.root);
+        System.out.print("\nReverse Level Order Traversal of Tree : ");
+        reverseLevelOrder(tree.root);
     }
 }
