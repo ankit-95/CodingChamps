@@ -106,6 +106,24 @@ public class TreeTraversal {
         return Math.max(max1,max2);
     }
 
+    public static int getHeightIterative(Node root){
+        Queue<Node> q = new LinkedList<>();
+        int height = 0;
+        q.add(root);
+        while(!q.isEmpty()){
+            int size = q.size();
+            while(size-->0){
+                Node node = q.poll();
+                if(node.left!=null)
+                    q.add(node.left);
+                if(node.right!=null)
+                    q.add(node.right);
+            }
+            height++;
+        }
+        return height;
+    }
+
     public static void printLevelOrderTraversal(Node temp){
         Queue<Node> queue = new LinkedList<>();
         queue.add(temp);
@@ -174,6 +192,7 @@ public class TreeTraversal {
         tree1.root.right.left = new Node(3);
         //tree.root.left.right = new Node(3);
         System.out.print("\nHeight Of Tree : "+heightOfTree(tree1.root));
+        System.out.print("\nHeight Of Tree (Iterative) : "+getHeightIterative(tree1.root));
         System.out.print("\nLevel Order Traversal of Tree : ");
         printLevelOrderTraversal(tree.root);
         System.out.print("\nReverse Level Order Traversal of Tree : ");
