@@ -13,6 +13,10 @@ public class Graph {
             adj[i] = new ArrayList<>();
     }
 
+    public ArrayList<Integer>[] getAdjList(){
+        return adj;
+    }
+
     public void addEdge(int u,int v){
         adj[u].add(v);
     }
