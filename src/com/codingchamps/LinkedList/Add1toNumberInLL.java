@@ -1,5 +1,8 @@
 package com.codingchamps.LinkedList;
 
+//Add 1 to a number represented as linked list
+//        A number N is represented in Linked List such that each digit corresponds to a node in linked list. You need to add 1 to it.
+// Link : https://practice.geeksforgeeks.org/problems/add-1-to-a-number-represented-as-linked-list/1
 public class Add1toNumberInLL {
     Node head;
     static int count;
