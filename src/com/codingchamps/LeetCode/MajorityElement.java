@@ -3,7 +3,7 @@ package com.codingchamps.LeetCode;
 public class MajorityElement {
 
     // Time Complexity : O(n) and Aux Space : O(1)
-    // Concpet is base don Booyre Moore Text Matching Algorithm
+
     public static int getMajorityElement(int ar[]){
         int count=0;
         Integer candidate = null;
