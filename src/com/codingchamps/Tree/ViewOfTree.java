@@ -1,5 +1,10 @@
 package com.codingchamps.Tree;
 
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.TreeMap;
+
 public class ViewOfTree {
 
     Node root;
@@ -15,6 +20,15 @@ public class ViewOfTree {
         Node(int data){
             this.data = data;
             left=right=null;
+        }
+    }
+
+    public static class Pair{
+        Node node;
+        int level;
+        Pair(Node node, int level){
+            this.node = node;
+            this.level = level;
         }
     }
 
@@ -44,6 +58,27 @@ public class ViewOfTree {
         }
     }
 
+    public static void topViewOfBT(Node root){
+        Queue<Pair> q = new LinkedList<>();
+        q.add(new Pair(root,0));
+        Map<Integer,Integer> map = new TreeMap<>();
+        while(!q.isEmpty()){
+            Pair temp = q.remove();
+            if(!map.containsKey(temp.level)){
+                map.put(temp.level,temp.node.data);
+            }
+            if(temp.node.left!=null){
+                q.add(new Pair(temp.node.left, temp.level-1));
+            }
+            if(temp.node.right!=null){
+                q.add(new Pair(temp.node.right, temp.level+1));
+            }
+        }
+
+        for(Map.Entry<Integer, Integer> v : map.entrySet()){
+            System.out.print(v.getValue()+" ");
+        }
+    }
     public static void main(String[] args) {
 
         ViewOfTree tree1 = new ViewOfTree();
@@ -69,5 +104,9 @@ public class ViewOfTree {
 
         System.out.print("\nRight View of Tree : ");
         rightView(tree2.root,1);
+
+        System.out.print("\nTop View of Tree : ");
+        topViewOfBT(tree2.root);
+
     }
 }
