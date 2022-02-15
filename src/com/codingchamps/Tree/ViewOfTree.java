@@ -79,6 +79,26 @@ public class ViewOfTree {
             System.out.print(v.getValue()+" ");
         }
     }
+
+    public static void bottomViewBT(Node root){
+        Queue<Pair> q = new LinkedList<>();
+        q.add(new Pair(root,0));
+        Map<Integer,Integer> map = new TreeMap<>();
+        while(!q.isEmpty()){
+            Pair temp = q.remove();
+            map.put(temp.level,temp.node.data);
+            if(temp.node.left!=null){
+                q.add(new Pair(temp.node.left, temp.level-1));
+            }
+            if(temp.node.right!=null){
+                q.add(new Pair(temp.node.right, temp.level+1));
+            }
+        }
+
+        for(Map.Entry<Integer, Integer> v : map.entrySet()){
+            System.out.print(v.getValue()+" ");
+        }
+    }
     public static void main(String[] args) {
 
         ViewOfTree tree1 = new ViewOfTree();
@@ -107,6 +127,9 @@ public class ViewOfTree {
 
         System.out.print("\nTop View of Tree : ");
         topViewOfBT(tree2.root);
+
+        System.out.print("\nBotton View of Tree : ");
+        bottomViewBT(tree2.root);
 
     }
 }
