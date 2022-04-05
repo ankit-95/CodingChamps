@@ -1,55 +1,19 @@
 class Solution {
     
-    public class Pair implements Comparable<Pair> {
-        int index;
-        int val;
-        Pair(int index,int val){
-            this.index = index;
-            this.val = val;
-        }
-        
-        public int compareTo(Pair p1){
-            return this.index - p1.index;
-        }
-    }
-    
     public int[] pivotArray(int[] nums, int pivot) {
-            ArrayList<Pair> left = new ArrayList<>();
-            ArrayList<Pair> right = new ArrayList<>();
-            int count=0;
-            for(int i=0;i<nums.length;i++){  
-                if(nums[i]<pivot){
-                    left.add(new Pair(i,nums[i]));
-                }
-                else if(nums[i]==pivot){
-                    count++;
-                }
+        int ans[] = new int[nums.length];
+        int left =0,right=nums.length-1;
+        for(int i=0,j=nums.length-1;i<nums.length;i++,j--){
+            if(nums[i] < pivot){
+                ans[left++] = nums[i];
             }
-                             
-            Collections.sort(left);                            
-            for(int i=nums.length-1;i>=0;i--)  {
-                if(nums[i]>pivot){
-                    right.add(new Pair(i,nums[i]));
-                }
+            if(nums[j] > pivot){
+               ans[right--] = nums[j]; 
             }
-            Collections.sort(right); 
-            int i = 0;
-            Iterator itr = left.iterator();
-            while(itr.hasNext()){
-                Pair p = (Pair)itr.next();
-                nums[i] = p.val;
-                i++;
-            }   
-            while(count-->0){
-                nums[i] = pivot;
-                i++;
-            }
-            itr = right.iterator();
-            while(itr.hasNext()){
-                Pair p = (Pair)itr.next();
-                nums[i] = p.val;
-                i++;
-            }  
-            return nums;
-        }   
+        }
+        while(left<=right){
+            ans[left++] = pivot;
+        }
+        return ans;
+    }   
 }
