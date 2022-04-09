@@ -4,7 +4,7 @@ class Solution {
         List<Integer> ans = new ArrayList<>();    
         int nodes[] = new int[n];
         for(List<Integer> edge : edges){
-            nodes[edge.get(1)]++;
+            nodes[edge.get(1)]=1;
         }
         for(int i=0;i<n;i++){
             if(nodes[i]==0)
