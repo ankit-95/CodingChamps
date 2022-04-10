@@ -34,21 +34,31 @@ class FindElements {
         this.root = root;
     }
     
+    public boolean helper(TreeNode root, int target){
+        if(root==null)
+            return false;
+        if(root.val == target)
+            return true;
+        if(helper(root.left,target))
+            return true;
+        return helper(root.right,target);
+    }
     public boolean find(int target) {
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(this.root);
-        while(!q.isEmpty()){
-            TreeNode t = q.remove();
-            if(t.val==target)
-                return true;
-            if(t.left!=null){
-                q.add(t.left);
-            }
-            if(t.right!=null){
-                q.add(t.right);
-            }
-        }
-        return false;
+        // Queue<TreeNode> q = new LinkedList<>();
+        // q.add(this.root);
+        // while(!q.isEmpty()){
+        //     TreeNode t = q.remove();
+        //     if(t.val==target)
+        //         return true;
+        //     if(t.left!=null){
+        //         q.add(t.left);
+        //     }
+        //     if(t.right!=null){
+        //         q.add(t.right);
+        //     }
+        // }
+        // return false;
+        return helper(this.root,target);
     }
 }
 
