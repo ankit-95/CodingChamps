@@ -16,21 +16,19 @@
 class FindElements {
     TreeNode root;
     
+    public void helper1(TreeNode root){
+        if(root==null)
+            return;
+        if(root.left!=null)
+            root.left.val = root.val * 2 + 1;
+         if(root.right!=null)
+            root.right.val = root.val * 2 + 2;
+        helper1(root.left);
+        helper1(root.right);
+    }
     public FindElements(TreeNode root) {
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
         root.val = 0;
-        while(!q.isEmpty()){
-            TreeNode t = q.remove();
-            if(t.left!=null){
-                t.left.val = 2 * t.val + 1;
-                q.add(t.left);
-            }
-            if(t.right!=null){
-                t.right.val = 2 * t.val + 2;
-                q.add(t.right);
-            }
-        }
+        helper1(root);
         this.root = root;
     }
     
@@ -44,20 +42,6 @@ class FindElements {
         return helper(root.right,target);
     }
     public boolean find(int target) {
-        // Queue<TreeNode> q = new LinkedList<>();
-        // q.add(this.root);
-        // while(!q.isEmpty()){
-        //     TreeNode t = q.remove();
-        //     if(t.val==target)
-        //         return true;
-        //     if(t.left!=null){
-        //         q.add(t.left);
-        //     }
-        //     if(t.right!=null){
-        //         q.add(t.right);
-        //     }
-        // }
-        // return false;
         return helper(this.root,target);
     }
 }
