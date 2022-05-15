@@ -17,7 +17,7 @@ class Solution {
     
     public int deepestLeavesSum(TreeNode root) {
         
-        Map<Integer,Integer> map = new HashMap<>();
+       // Map<Integer,Integer> map = new HashMap<>();
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         int level =0;
@@ -27,10 +27,6 @@ class Solution {
             sum=0;
             while(size-->0){
                 TreeNode temp = q.remove();
-                // if(temp.left==null && temp.right==null){
-                //      map.put(level, map.getOrDefault(level,0)+temp.val);
-                //     continue;
-                // }
                 sum+=temp.val;
                 if(temp.left!=null)
                     q.add(temp.left);
@@ -39,7 +35,6 @@ class Solution {
             }
             level++;
         }
-        //return (int) map.get(level-1);
         return sum;
     }
 }
