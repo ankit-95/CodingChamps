@@ -18,7 +18,6 @@ class Solution {
         int max = 0;
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
-                int localMax[] = new int[1];
                 max = Math.max(max,helper(-1,i,j,matrix,m,n));   
             }   
         }
