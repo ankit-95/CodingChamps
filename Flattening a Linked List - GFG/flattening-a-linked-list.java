@@ -118,24 +118,55 @@ class Node
     the flattened linked list. */
 class GfG
 {
-    Node flatten(Node root)
-    {
+    public Node merge(Node a, Node b){
         Node dummy = new Node(-1);
         Node temp = dummy;
-	    PriorityQueue<Node> q = new PriorityQueue<>((a,b)-> a.data - b.data);
-	    Node temp1 = root;
-	    while(temp1!=null){
-	        q.add(temp1);
-	        temp1 = temp1.next;
-	    }
-	    
-	    while(!q.isEmpty()){
-	         Node temp2 = q.remove();
-	         temp.bottom = new Node(temp2.data);
-	         if(temp2!=null && temp2.bottom!=null)
-	            q.add(temp2.bottom);
-	         temp = temp.bottom;
-	    }
-	    return dummy.bottom;
+        while(a!=null && b!=null){
+            if(a.data < b.data){
+                temp.bottom = a;
+                temp = temp.bottom;
+                a = a.bottom;
+            } else {
+                temp.bottom = b;
+                temp = temp.bottom;
+                b = b.bottom; 
+            }
+        }
+        if(a!=null) temp.bottom = a;
+        else if(b!=null) temp.bottom = b;
+        return dummy.bottom;
     }
+    
+    Node flatten(Node root){
+        if(root==null || root.next==null)
+            return root;
+        root.next = flatten(root.next);  
+        
+        root =  merge(root,root.next);
+        
+        return root;
+    }
+    
+    
+    // Priority Queue Based Solution
+    // Node flatten(Node root)
+    // {
+    //     Node dummy = new Node(-1);
+    //     Node temp = dummy;
+	   // PriorityQueue<Node> q = new PriorityQueue<>((a,b)-> a.data - b.data);
+	   // Node temp1 = root;
+	   // while(temp1!=null){
+	   //     q.add(temp1);
+	   //     temp1 = temp1.next;
+	   // }
+	    
+	   // while(!q.isEmpty()){
+	   //      Node temp2 = q.remove();
+	   //      temp.bottom = new Node(temp2.data);
+	   //      if(temp2!=null && temp2.bottom!=null)
+	   //         q.add(temp2.bottom);
+	   //      temp = temp.bottom;
+	   // }
+	   // return dummy.bottom;
+    // }
 }
