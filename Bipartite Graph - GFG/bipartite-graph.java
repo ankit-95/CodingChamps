@@ -37,20 +37,35 @@ class GFG
 class Solution
 {
     
+    // public boolean check(int src, ArrayList<ArrayList<Integer>>adj, int color[]){
+    //     Queue<Integer> q = new LinkedList<>();
+    //     color[src] = 1;
+    //     q.add(src);
+    //     while(!q.isEmpty()){
+    //         int u = q.remove();
+    //         for(int v : adj.get(u)){
+    //             if(color[v]==-1){
+    //                 color[v] = 1- color[u];
+    //                 q.add(v);
+    //             } else if(color[u] == color[v]){
+    //                 return false;
+    //             } 
+    //         }
+    //     }
+    //     return true;
+    // }
+    
     public boolean check(int src, ArrayList<ArrayList<Integer>>adj, int color[]){
-        Queue<Integer> q = new LinkedList<>();
-        color[src] = 1;
-        q.add(src);
-        while(!q.isEmpty()){
-            int u = q.remove();
-            for(int v : adj.get(u)){
-                if(color[v]==-1){
-                    color[v] = 1- color[u];
-                    q.add(v);
-                } else if(color[u] == color[v]){
+        if(color[src]==-1) color[src] = 1;
+        
+        for(int v : adj.get(src)){
+            if(color[v]==-1){
+                color[v] = 1 - color[src];
+                if(!check(v,adj,color)){
                     return false;
-                } 
-            }
+                }
+            } else if(color[v] == color[src])
+                return false;
         }
         return true;
     }
