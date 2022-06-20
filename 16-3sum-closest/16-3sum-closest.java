@@ -5,7 +5,9 @@ class Solution {
         Arrays.sort(nums);
         int minDis = Integer.MAX_VALUE;
         int res =0;
-        for(int i=0;i<nums.length-2;i++){    
+        for(int i=0;i<nums.length-2;i++){
+            if(i==0 || (i>0 && nums[i]!=nums[i-1])){
+                
                 int l = i+1, r = nums.length-1;
                 while(l<r){
                     int sum = nums[i]+nums[l]+nums[r];
@@ -25,7 +27,7 @@ class Solution {
                           l++;
                     }
                 }
-            while(i<nums.length -1 && nums[i] == nums[i+1]) i++;
+            }
         }
         return res;
     }
