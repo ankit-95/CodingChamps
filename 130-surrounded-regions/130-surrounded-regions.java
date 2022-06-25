@@ -24,10 +24,10 @@ class Solution {
         //post-prcessing, turn 'O' to 'X', '*' back to 'O', keep 'X' intact.
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (board[i][j] == 'O')
-                    board[i][j] = 'X';
-                else if (board[i][j] == '*')
+                if (board[i][j] == '*')
                     board[i][j] = 'O';
+                else 
+                    board[i][j] = 'X';
             }
         }
     }
