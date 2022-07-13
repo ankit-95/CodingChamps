@@ -12,14 +12,12 @@ class Solution {
         for(int i=1;i<=r;i++){
             for(int j=0;j<c;j++){
                 if(i>1) dp[i][j] += dp[i][j]==1 ? dp[i-1][j] : 0;
-           //     System.out.print(dp[i][j]+" ");
             }
-           // System.out.print("\n");
         }
         
         int maxi = 0;
+        Stack<Integer> s = new Stack<>();
         for(int i=1;i<=r;i++){
-            Stack<Integer> s = new Stack<>();
             for(int j=0;j<=c;j++){
                 int val = j==c ? -1 : dp[i][j];
                 while(!s.isEmpty() && val <= dp[i][s.peek()]){
@@ -29,6 +27,7 @@ class Solution {
                 }
                 s.push(j);
             }
+            s.clear(); //refresh stack
         }
         return maxi;
     }
