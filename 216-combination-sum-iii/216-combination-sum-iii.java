@@ -7,9 +7,8 @@ class Solution {
             return;
         }
         for(int i=start;i<=9;i++){
-            int diff = target - i;
             list.add(i);
-            helper(diff,k-1,list,i+1,ans);
+            helper(target-i,k-1,list,i+1,ans);
             list.remove(list.size()-1);
         }
     }
