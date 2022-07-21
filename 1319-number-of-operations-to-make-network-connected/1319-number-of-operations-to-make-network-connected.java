@@ -6,6 +6,7 @@ class Solution {
         }
         return parent[u];
     }
+    
     public int makeConnected(int n, int[][] connections) {
         
         int parent[] = new int[n];
