@@ -14,10 +14,10 @@ class Solution {
             int u[]  = q.remove();
             int node = u[0];
             int timeReq = u[1];
-            time = Math.max(time,timeReq);
             for(int v : map.getOrDefault(node,new ArrayList<>())){
                 q.add(new int[]{v, timeReq + informTime[node]});
             }      
+            time = Math.max(time,timeReq);
         }
         return time;
     }
