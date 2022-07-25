@@ -8,9 +8,7 @@ class Solution {
             if(ar[mid] > target){
                 ans = ar[mid];
                 end--;
-            } else if(ar[mid] < target){
-                start++;
-            } else if(ar[mid] == target){
+            } else if(ar[mid] <= target){
                 start++;
             }      
         }
