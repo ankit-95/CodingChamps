@@ -1,33 +1,32 @@
 class Solution {
     
-    // public void helper(int n, String s, List<String> ans){
-    //     if(n==0){
-    //         ans.add(s);
-    //         return;
-    //     }
-    //     for(int i=1;i<=2;i++){
-    //         if(n-i>=0)
-    //             helper(n-i,s+i,ans);    
-    //     } 
-    // }
-    // public int climbStairs(int n) {
-    //     List<String> ans = new ArrayList<>();
-    //     helper(n,"",ans);
-    //     //System.out.print(ans);
-    //     return ans.size();
-    // }
-    
-    public int climbStairs(int n) {
-        if(n<=1)
+    public int helper(int n,int dp[]){
+        if(n==0){
             return 1;
-        int prev1 = 1;
-        int prev2 = 2;
-        for(int i=3;i<=n;i++){
-            int newVal = prev1 + prev2;
-            prev1 = prev2;
-            prev2 = newVal;
         }
-        return prev2;
+        if(dp[n]!=-1) return dp[n];
+        int first = 0,second=0;
+        if(n-1>=0) first = helper(n-1,dp);
+        if(n-2>=0) second = helper(n-2,dp);
+        return dp[n] = first + second;
     }
+    public int climbStairs(int n) {
+        int dp[] = new int[n+1];
+        Arrays.fill(dp,-1);
+        return helper(n,dp);
+    }
+    
+    // public int climbStairs(int n) {
+    //     if(n<=1)
+    //         return 1;
+    //     int prev1 = 1;
+    //     int prev2 = 2;
+    //     for(int i=3;i<=n;i++){
+    //         int newVal = prev1 + prev2;
+    //         prev1 = prev2;
+    //         prev2 = newVal;
+    //     }
+    //     return prev2;
+    // }
     
 }
