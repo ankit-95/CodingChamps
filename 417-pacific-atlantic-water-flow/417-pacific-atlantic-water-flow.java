@@ -71,6 +71,13 @@ public class Solution {
             dfs(matrix, pacific, Integer.MIN_VALUE, 0, i);
             dfs(matrix, atlantic, Integer.MIN_VALUE, n-1, i);
         }
+        
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < m; j++){
+                System.out.print(pacific[i][j]+" ");
+            }
+            System.out.print("\n");
+        }
         for (int i = 0; i < n; i++){
             for (int j = 0; j < m; j++){
                 List<Integer> list = new ArrayList<>();
