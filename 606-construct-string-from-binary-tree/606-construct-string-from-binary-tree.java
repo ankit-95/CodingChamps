@@ -28,7 +28,5 @@ class Solution {
     }
     public String tree2str(TreeNode root) {
        return helper(root);
-       
-     
     }
 }
