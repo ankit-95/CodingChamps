@@ -23,6 +23,23 @@ class Solution {
         }
         
         boolean visited[] = new boolean[n];
-        return dfs(source,visited,adj,destination);
+        //return dfs(source,visited,adj,destination);
+        //BFS Approach
+        
+        Queue<Integer> q = new LinkedList<>();
+        q.add(source);
+        visited[source] = true;
+        while(!q.isEmpty()){
+            int u = q.remove();
+            if(u==destination)
+                return true;
+            for(int v : adj.getOrDefault(u, new ArrayList<>())){
+                if(!visited[v]){
+                    visited[v] = true;
+                    q.add(v);
+                }
+            }
+        }
+        return false;
     }
 }
