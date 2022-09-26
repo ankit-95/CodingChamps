@@ -23,11 +23,25 @@ class Solution {
         list.add(root.val);
         inorder(list,root.right);
     }
+    
     public List<Integer> inorderTraversal(TreeNode root) {
-        if(root==null)
-            return new ArrayList();
+        // if(root==null)
+        //     return new ArrayList();
         List<Integer> list = new ArrayList<>();
-        inorder(list,root);
+        //inorder(list,root);
+        
+        Stack<TreeNode> st = new Stack<>();
+        while(root!=null || st.size()>0){
+            while(root!=null){
+                st.push(root);
+                root = root.left;
+            }
+               
+            root = st.pop();
+            list.add(root.val);    
+            root = root.right;
+        }
         return list;
     }
+    
 }
