@@ -30,16 +30,37 @@ class Solution {
         List<Integer> list = new ArrayList<>();
         //inorder(list,root);
         
-        Stack<TreeNode> st = new Stack<>();
-        while(root!=null || st.size()>0){
-            while(root!=null){
-                st.push(root);
-                root = root.left;
-            }
+//         Stack<TreeNode> st = new Stack<>();
+//         while(root!=null || st.size()>0){
+//             while(root!=null){
+//                 st.push(root);
+//                 root = root.left;
+//             }
                
-            root = st.pop();
-            list.add(root.val);    
-            root = root.right;
+//             root = st.pop();
+//             list.add(root.val);    
+//             root = root.right;
+//         }
+        
+        while(root!=null){
+            if(root.left==null){
+                list.add(root.val);    
+                root = root.right;
+            } else {
+                TreeNode prev = root.left;
+                while(prev.right!=null && prev.right!=root){
+                    prev = prev.right;
+                }
+                if(prev.right==null){
+                    prev.right = root;
+                    root = root.left;
+                }
+                else if(prev.right==root){
+                    prev.right= null;
+                    list.add(root.val);    
+                    root = root.right;
+                }
+            }
         }
         return list;
     }
