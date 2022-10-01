@@ -14,6 +14,7 @@ class Solution {
         }
         return dp[index] = ans;
     }
+    
     public int numDecodings(String s) {
         int dp[] = new int[s.length()+1];
         return helper(0,s,dp);
