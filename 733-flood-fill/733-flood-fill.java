@@ -1,7 +1,7 @@
 class Solution {
     
     public void dfs(int[][] image,int newColor,int i,int j,int m,int n,int color){
-        if(i<0 || i==m || j<0 || j==n || image[i][j]!=color){
+        if(i<0 || i>=m || j<0 || j>=n || image[i][j]!=color){
             return;
         }
         image[i][j]=newColor;
