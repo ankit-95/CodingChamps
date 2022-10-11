@@ -14,7 +14,7 @@ class Solution {
                 b1[c1] = c2;
                 b2[c2] = c1;
                 
-            } else if(!(b1[c1]==c2 && b2[c2]==c1))
+            } else if((b1[c1]!=c2 || b2[c2]!=c1))
                 return false;
         }
         return true;
