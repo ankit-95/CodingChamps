@@ -9,12 +9,11 @@ class Solution {
     }
     
     public boolean sumOfNumberAndReverse(int num) {
-        int left = 0;
-        int right = num;
-        while(left<= right){
-            if(left + rev(left) == num)
+        int right = num/2;
+        while(right <= num){
+            if(right + rev(right) == num)
                 return true;
-            left++;
+            right++;
         }
         return false;
     }
