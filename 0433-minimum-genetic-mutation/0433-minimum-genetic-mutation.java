@@ -1,9 +1,8 @@
 class Solution {
     public int minMutation(String start, String end, String[] bank) {
-        Set<String> seen = new HashSet<>();
+        Set<String> seen = new HashSet<>(Arrays.asList(bank));
         Queue<String> q = new LinkedList<>();
         int step = 0;
-        seen.add(start);
         q.add(start);
         
         char ch[] = {'A','C','G','T'};
@@ -18,8 +17,8 @@ class Solution {
                 for(char c :  ch){
                     for(int i=0;i<node.length();i++){
                         String neighbor = node.substring(0,i) + c + node.substring(i+1);
-                        if(!seen.contains(neighbor) && Arrays.asList(bank).contains(neighbor)){
-                            seen.add(neighbor);
+                        if(seen.contains(neighbor)){
+                            seen.remove(neighbor);
                             q.add(neighbor);
                         }
                     }    
