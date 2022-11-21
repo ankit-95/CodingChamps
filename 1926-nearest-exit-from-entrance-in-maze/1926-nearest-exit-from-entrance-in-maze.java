@@ -5,12 +5,15 @@ class Solution {
         int n = maze.length;
         int m = maze[0].length;
         
-        Queue<int[]> q = new LinkedList<>();
-        q.add(new int[]{entrance[0],entrance[1],0});
-        boolean vis[][] = new boolean[n][m];
-        vis[entrance[0]][entrance[1]] = true;
         int startx = entrance[0];
         int starty = entrance[1];
+        
+        Queue<int[]> q = new LinkedList<>();
+        q.add(new int[]{startx,starty,0});
+        
+        boolean vis[][] = new boolean[n][m];
+        vis[startx][starty] = true;
+        
         while(!q.isEmpty()){
             int top[] = q.remove();
             int x = top[0];
