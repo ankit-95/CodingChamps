@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+select project_id, ROUND(avg(experience_years),2) as average_years  from Employee p inner join Project e on e.employee_id = p.employee_id group by (e.project_id)
